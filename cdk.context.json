@@ -1,0 +1,17 @@
+{
+    "stack_name":"VPCPeeringPoC",
+    "vpcs":{
+        "vpc1":{
+            "cidr":"10.0.0.0/16",
+            "max_azs":2,
+            "nb_nat_gateways":1,
+            "private_subnets_with_egress":false
+        },
+        "vpc2":{
+            "cidr":"10.1.0.0/16",
+            "max_azs":2,
+            "nb_nat_gateways":1,
+            "private_subnets_with_egress":false
+        }
+    }
+}
