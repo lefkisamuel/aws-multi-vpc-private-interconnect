@@ -1,5 +1,5 @@
 ## Overview
-This repository contains code and resources for creating and deploying infrastructure on AWS using the AWS Cloud Development Kit (CDK). The code in this repository is specifically designed to make it easy for users to quickly set up multiple VPCs that are privately interconnected. 
+This project was developed as an accelerator to quickly build proof of concepts that require communication between applications' components over a private network. The application deploys two VPCs and connects them through a VPC peering connection, providing a basic private network that can be used as a starting point for more complex architectures. 
 
 ## Prerequisites
 - An AWS account and credentials
