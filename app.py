@@ -7,8 +7,9 @@ app = cdk.App()
 stack_name = app.node.try_get_context("stack_name")
 vpcs = app.node.try_get_context("vpcs")
 
-if len(vpcs) == 2:
-    raise Exception("There must be 2 VPCs defined in the context.")
+vpcs_count = len(vpcs)
+if len(vpcs) != 2:
+    raise Exception(f"Expected 2 vpcs in the context, found {vpcs_count}")
 
 RootStack(app, stack_name, vpcs)
 
