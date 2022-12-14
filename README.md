@@ -52,11 +52,11 @@ The application deploys two VPCs and connects them using a VPC peering connectio
 ![Architecture Diagram](.attachments/diagram.svg)
 
 ## Clean-up
-To clean up the stack, you can use the cdk destroy command as shown below:
+To clean up the stacks, you can use the cdk destroy command as shown below:
 ```
 cdk destroy
 ```
-This command will delete all resources that were created by the stack. Failing to delete resources such as NAT Gateways can result in ongoing charges for their usage. 
+This command will delete all resources that were created by the stacks. Failing to delete resources such as NAT Gateways can result in ongoing charges for their usage. 
 
 ## License
 The project is licensed under the MIT license, which allows users to use, modify, and distribute the project's code and documentation for any purpose, as long as the original copyright and license notice is included.
