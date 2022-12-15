@@ -13,7 +13,7 @@
 - [License](#license)
 
 ## Overview
-This project was designed to quickly create proof-of-concepts that require communication between different components of applications over a private network. This AWS Cloud Development Kit (CDK) application deploys two Amazon Virtual Private Clouds (VPCs) and connects them through a VPC peering connection, providing a basic private network that can be used as a foundation for more complex architectures.
+This project was designed to quickly create proof-of-concepts for applications that require communication between different private networks. This AWS Cloud Development Kit (CDK) application deploys two Amazon Virtual Private Clouds (VPCs) and connects them through a VPC peering connection, providing a basic private network that can be used as a foundation for more complex architectures.
 
 ## Getting Started
 ### Prerequisites
