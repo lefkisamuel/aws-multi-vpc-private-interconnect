@@ -1,6 +1,16 @@
-# README.md
-
-[TOC]
+# aws-multi-vpc-private-interconnecta
+## Table of Contents:
+- [Overview](#overview)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation and Setup](#installation-and-setup)
+  - [Usage](#usage)
+    - [Configuration options](#configuration-options)
+    - [Provisioned resources](#provisioned-resources)
+    - [Deployment](#deployment)
+- [Architecture](#architecture)
+- [Clean-up](#clean-up)
+- [License](#license)
 
 ## Overview
 This project was designed to quickly create proof-of-concepts that require communication between different components of applications over a private network. This AWS Cloud Development Kit (CDK) application deploys two Amazon Virtual Private Clouds (VPCs) and connects them through a VPC peering connection, providing a basic private network that can be used as a foundation for more complex architectures.
@@ -64,7 +74,19 @@ The `vpcs` object contains configuration options for two Virtual Private Clouds 
 These configuration options can be used to customize the behavior of the CDK stack when it is deployed. For example, the VPC CIDR blocks and the number of NAT gateways can be adjusted to fit the needs of the specific environment in which the stack is being deployed.
 
 #### Provisioned resources
-TODO
+The following table lists the provisioned resources and their descriptions:
+
+| Resource Type | Description | 
+|----------|----------|
+| VPCs   | Two VPCs are deployed. |
+| Public Subnets | The number of public subnets is determined by the value of the max_azs attribute. For instance, if this is set to 2, then two public subnets will be provisioned. |
+| Private Subnets | The number of private subnets is the same as the number of public subnets. |
+|Internet Gateways| One internet gateway is deployed per VPC.|
+| NAT Gateways   | The number of NAT gateways depends on the configuration of the context. By default, one NAT gateway per VPC is provisioned. However, if private_subnets_with_egress is set to False, then no NAT gateways will be deployed. |
+| VPC Peering Connection | A VPC Peering Connection between the two VPCs is provisioned with auto-accept enabled.| 
+| Routes | Routes are configured to allow traffic from the private subnets of a VPC to the other VPC's CIDR. |
+|Security Groups| A security group is created for each VPC to allow all traffic between the two VPCs.|
+
 
 #### Deployment
 To deploy the configured cloud resources, run the following command:
