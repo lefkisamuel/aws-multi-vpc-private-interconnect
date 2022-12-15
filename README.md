@@ -1,15 +1,36 @@
+# README.md
+
+[TOC]
+
 ## Overview
 This project was designed to quickly create proof-of-concepts that require communication between different components of applications over a private network. This AWS Cloud Development Kit (CDK) application deploys two Amazon Virtual Private Clouds (VPCs) and connects them through a VPC peering connection, providing a basic private network that can be used as a foundation for more complex architectures.
 
-## Prerequisites
+## Getting Started
+### Prerequisites
 - An AWS account and credentials
 - Node.js and the AWS CDK Toolkit installed
 - Python 3.6 or later
 - The Python package installer (pip) and virtual environment manager (virtualenv)
 
-## Usage
+### Installation and Setup
+1. Clone the repository to your local machine:
+```
+git clone https://github.com/lefkisamuel/aws-multi-vpc-private-interconnect
+```
+2. Navigate to the project's root directory:
+```
+cd aws-multi-vpc-private-interconnect
+```
+3. Install the required dependencies:
+```
+pip install -r requirements.txt
+```
+4. Configure the VPCs by editing the `cdk.context.json` file at the root of the repository. For more information, see the [Usage](#Usage) section below.
+
+### Usage
 This application is implemented using the AWS CDK. In order to deploy the cloud resources, a context must be provided to the CDK application. Here is an example of how to configure and deploy the resources for this application. 
 
+#### Configuration options
 The `cdk.context.json` file, which is located at the root level of the repository, is used to provide configuration options to the CDK stack. An example of its usage is shown below:
 ```
 {
@@ -38,10 +59,14 @@ The `vpcs` object contains configuration options for two Virtual Private Clouds 
 - `cidr`: The CIDR block for the VPC.
 - `max_azs`: The maximum number of Availability Zones (AZs) to use for the VPC.
 - `nb_nat_gateways`: The number of NAT gateways to create for the VPC.
-- `private_subnets_with_egress`: A boolean value indicating whether private subnets in the VPC should have internet egress enabled.
+- `private_subnets_with_egress`: A boolean value indicating whether private subnets in the VPC should have internet egress enabled. _Note that if you set the private_subnets_with_egress option to False, the application will not create any NAT gateways for the VPCs_
 
 These configuration options can be used to customize the behavior of the CDK stack when it is deployed. For example, the VPC CIDR blocks and the number of NAT gateways can be adjusted to fit the needs of the specific environment in which the stack is being deployed.
 
+#### Provisioned resources
+TODO
+
+#### Deployment
 To deploy the configured cloud resources, run the following command:
 ```
 cdk deploy
