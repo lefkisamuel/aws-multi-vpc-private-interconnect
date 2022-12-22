@@ -31,11 +31,23 @@ git clone https://github.com/lefkisamuel/aws-multi-vpc-private-interconnect
 ```
 cd aws-multi-vpc-private-interconnect
 ```
-3. Install the required dependencies:
+3. Create a virtual environment for the Python project:
+```
+python -m venv .venv
+```
+4. Activate the virtual environment by running the activate script located in the bin directory within the virtual environment. On Unix-like systems, run the following command:
+```
+source .venv/bin/activate
+```
+On Windows, run the following command:
+```
+.venv\Scripts\activate.bat
+```
+5. Install the required dependencies:
 ```
 pip install -r requirements.txt
 ```
-4. Configure the VPCs by editing the `cdk.context.json` file at the root of the repository. For more information, see the [Usage](#Usage) section below.
+6. Configure the VPCs by editing the `cdk.context.json` file at the root of the repository. For more information, see the [Usage](#Usage) section below.
 
 ### Usage
 This application is implemented using the AWS CDK. In order to deploy the cloud resources, a context must be provided to the CDK application. Here is an example of how to configure and deploy the resources for this application. 
